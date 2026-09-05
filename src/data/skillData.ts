@@ -1,7 +1,5 @@
 // src/data/skillData.ts
 
-// src/data/skillData.ts
-
 export const skillJsonData = {
   "dropdown_options": [
     { "value": "D01", "label": "Creative & Handicrafts" },
@@ -10,109 +8,64 @@ export const skillJsonData = {
   ]
 };
 
-// ─── STAGE 3: UNIVERSAL APTITUDE BANK ───
+// ─── STAGE 3: FULL 30-QUESTION GENERIC APTITUDE BANK ───
 export const aptitudeQuestions = [
-  {
-    skillName: "Logical Reasoning",
-    type: "Aptitude",
-    question: "Which one does NOT belong with the others?",
-    options: ["Hammer", "Screwdriver", "Wrench", "Onion"],
-    correctIdx: 3,
-    explanation: "The other three are tools; an onion is food."
-  },
-  {
-    skillName: "Numerical Ability",
-    type: "Aptitude",
-    question: "A worker earns ₹350 per day. How much does she earn in 6 days?",
-    options: ["₹2,000", "₹2,100", "₹1,900", "₹2,300"],
-    correctIdx: 1,
-    explanation: "350 x 6 = 2100."
-  },
-  {
-    skillName: "Practical Reasoning",
-    type: "Aptitude",
-    question: "A bicycle chain keeps slipping off. What should you check first?",
-    options: ["The tyre pressure", "The chain tension/looseness", "The seat height", "The paint colour"],
-    correctIdx: 1,
-    explanation: "Chain tension directly affects its ability to stay on the gears."
-  },
-  {
-    skillName: "Data Interpretation",
-    type: "Aptitude",
-    question: "Mandi prices this week: Mon ₹22/kg, Tue ₹25/kg, Wed ₹20/kg, Thu ₹28/kg. On which day should a farmer sell to get the best price?",
-    options: ["Monday", "Tuesday", "Wednesday", "Thursday"],
-    correctIdx: 3,
-    explanation: "Thursday has the highest price at 28/kg."
-  }
+  // Logical Reasoning (8 Items)
+  { skillName: "Logical Reasoning", type: "Aptitude", question: "Which one does NOT belong with the others?", options: ["Hammer", "Screwdriver", "Wrench", "Onion"], correctIdx: 3 },
+  { skillName: "Logical Reasoning", type: "Aptitude", question: "Cow, Buffalo, Goat, Table - which does not belong?", options: ["Cow", "Buffalo", "Goat", "Table"], correctIdx: 3 },
+  { skillName: "Logical Reasoning", type: "Aptitude", question: "Seed is to Plant as Egg is to ____", options: ["Nest", "Bird", "Farm", "Feather"], correctIdx: 1 },
+  { skillName: "Logical Reasoning", type: "Aptitude", question: "Put these steps in the correct order to cook rice: (1) Serve the rice (2) Wash the rice (3) Boil water (4) Add rice to boiling water", options: ["2-3-4-1", "3-2-4-1", "2-4-3-1", "1-2-3-4"], correctIdx: 0 },
+  { skillName: "Logical Reasoning", type: "Aptitude", question: "All tailors can stitch. Ramesh is a tailor. What can we say?", options: ["Ramesh can stitch", "Ramesh cannot stitch", "Cannot say", "Ramesh owns a shop"], correctIdx: 0 },
+  { skillName: "Logical Reasoning", type: "Aptitude", question: "\"If it rains, the field work is cancelled.\" It did not rain today. What do we know about the field work?", options: ["It is cancelled", "It is not cancelled", "Cannot say for certain", "It will rain tomorrow"], correctIdx: 2 },
+  { skillName: "Logical Reasoning", type: "Aptitude", question: "Two customers arrive at your shop at the same time - one wants to pay and leave quickly, the other wants advice on what to buy. What should you do first?", options: ["Ignore both until you finish a task", "Politely ask the quick customer to wait 1 minute while you take money from the first", "Serve whoever spoke first", "Ask them to come back later"], correctIdx: 1 },
+  { skillName: "Logical Reasoning", type: "Aptitude", question: "A is B's father. C is A's mother. What is C to B?", options: ["Sister", "Grandmother", "Aunt", "Mother"], correctIdx: 1 },
+  
+  // Pattern Recognition (4 Items)
+  { skillName: "Pattern Recognition", type: "Aptitude", question: "What comes next in the sequence? (Dot count: 1 -> 2 -> 3)", options: ["1 Dot", "4 Dots", "Same dots", "Zero dots"], correctIdx: 1 },
+  { skillName: "Pattern Recognition", type: "Aptitude", question: "What comes next? (Triangle -> Square -> Triangle -> Square)", options: ["Triangle", "Square", "Circle", "Pentagon"], correctIdx: 0 },
+  { skillName: "Pattern Recognition", type: "Aptitude", question: "Which figure breaks the pattern? Row: ○○•○○•○○■", options: ["Position 3 (•)", "Position 6 (•)", "Position 9 (■)", "None break it"], correctIdx: 2 },
+  { skillName: "Pattern Recognition", type: "Aptitude", question: "A shape gains one side each step: triangle (3) → square (4) → pentagon (5) → ?", options: ["Hexagon (6 sides)", "Circle (0 sides)", "Triangle again", "Pentagon again"], correctIdx: 0 },
+
+  // Numerical Ability (8 Items)
+  { skillName: "Numerical Ability", type: "Aptitude", question: "A farmer harvests 45 kg of wheat on Monday and 38 kg on Tuesday. He sells 20 kg. How much is left?", options: ["63 kg", "83 kg", "43 kg", "58 kg"], correctIdx: 0 },
+  { skillName: "Numerical Ability", type: "Aptitude", question: "A worker earns ₹350 per day. How much does she earn in 6 days?", options: ["₹2,000", "₹2,100", "₹1,900", "₹2,300"], correctIdx: 1 },
+  { skillName: "Numerical Ability", type: "Aptitude", question: "A shirt costs ₹500. It is sold at a 20% discount. What is the sale price?", options: ["₹480", "₹400", "₹450", "₹380"], correctIdx: 1 },
+  { skillName: "Numerical Ability", type: "Aptitude", question: "A recipe mixes flour and water in the ratio 3:1. If you use 600 g flour, how much water is needed?", options: ["100 g", "150 g", "200 g", "300 g"], correctIdx: 2 },
+  { skillName: "Numerical Ability", type: "Aptitude", question: "You buy items worth ₹165 and pay with a ₹200 note. How much change should you get?", options: ["₹25", "₹35", "₹45", "₹40"], correctIdx: 1 },
+  { skillName: "Numerical Ability", type: "Aptitude", question: "A bus leaves at 9:40 AM and the journey takes 2 hours 35 minutes. What time does it arrive?", options: ["12:05 PM", "12:15 PM", "11:15 AM", "12:25 PM"], correctIdx: 1 },
+  { skillName: "Numerical Ability", type: "Aptitude", question: "A rectangular field is roughly 40 steps long and 20 steps wide. Roughly how many square steps is its area?", options: ["60", "400", "800", "200"], correctIdx: 2 },
+  { skillName: "Numerical Ability", type: "Aptitude", question: "Mandi prices this week: Mon ₹22/kg, Tue ₹25/kg, Wed ₹20/kg, Thu ₹28/kg. On which day should a farmer sell to get the best price?", options: ["Monday", "Tuesday", "Wednesday", "Thursday"], correctIdx: 3 },
+
+  // Spatial Ability (6 Items)
+  { skillName: "Spatial Ability", type: "Aptitude", question: "If you rotate the letter \"F\" 90° clockwise, which way does the open side of the letter now face?", options: ["Up", "Down", "Left", "Right"], correctIdx: 1 },
+  { skillName: "Spatial Ability", type: "Aptitude", question: "You are facing North. You turn 90° right, then 90° right again. Which direction do you now face?", options: ["North", "South", "East", "West"], correctIdx: 1 },
+  { skillName: "Spatial Ability", type: "Aptitude", question: "Which of these shapes is identical to a regular hexagon?", options: ["5 equal sides", "6 equal sides and 6 equal angles", "6 sides of different lengths", "4 equal sides"], correctIdx: 1 },
+  { skillName: "Spatial Ability", type: "Aptitude", question: "What is the mirror image of the word \"MAP\" if reflected left-right?", options: ["It reads the same, MAP", "It reads PAM", "The letters are reversed and flipped", "It disappears"], correctIdx: 2 },
+  { skillName: "Spatial Ability", type: "Aptitude", question: "A flat cardboard net has 6 squares in a cross shape, numbered 1-6, with square 1 in the centre. If folded into a cube, which square is directly opposite 1?", options: ["Attached to 1", "Far end of the cross, two folds away", "Any square", "None"], correctIdx: 1 },
+  { skillName: "Spatial Ability", type: "Aptitude", question: "In a 3x3 grid of tools laid on a table, how many are in the middle row?", options: ["2", "3", "4", "9"], correctIdx: 1 },
+
+  // Practical Reasoning (4 Items)
+  { skillName: "Practical Reasoning", type: "Aptitude", question: "A bicycle chain keeps slipping off. What should you check first?", options: ["The tyre pressure", "The chain tension/looseness", "The seat height", "The paint colour"], correctIdx: 1 },
+  { skillName: "Practical Reasoning", type: "Aptitude", question: "You are using a power drill and the cord is frayed near the plug. What should you do?", options: ["Keep using it carefully", "Wrap it with cloth", "Stop using it and get it repaired", "Use it only for short bursts"], correctIdx: 2 },
+  { skillName: "Practical Reasoning", type: "Aptitude", question: "A customer says the vegetables you sold yesterday spoiled overnight. What is the most sensible first step?", options: ["Argue that it's not your fault", "Ask how they were stored and offer a fair resolution", "Ignore the complaint", "Stop selling to them"], correctIdx: 1 },
+  { skillName: "Practical Reasoning", type: "Aptitude", question: "You need to carry a heavy sack up a narrow staircase alone. What is the safest approach?", options: ["Carry it on your back and rush up", "Bend your knees, lift with your legs, and go slowly", "Drag it up by the corner", "Throw it up step by step"], correctIdx: 1 }
 ];
 
-// ─── STAGE 4: UNIVERSAL SITUATIONAL JUDGEMENT BANK ───
+// ─── STAGE 4: FULL 15-QUESTION SITUATIONAL JUDGEMENT BANK ───
 export const situationalQuestions = [
-  {
-    skillName: "Work Readiness",
-    type: "SJT",
-    question: "Your trainer shows the class a new technique. You don't understand it, but everyone else seems to. What do you do?",
-    options: [
-      "Stay quiet and hope to figure it out later",
-      "Ask the trainer to explain again, even if others might already know it",
-      "Copy a classmate's work without understanding it",
-      "Give up on that part of the training"
-    ],
-    correctIdx: 1,
-    explanation: "Asking for clarification shows initiative and is the only option that actually builds the skill."
-  },
-  {
-    skillName: "Work Readiness",
-    type: "SJT",
-    question: "You made a mistake while helping a customer and it will cost you money to fix. What do you do?",
-    options: [
-      "Hide the mistake and hope no one notices",
-      "Blame a co-worker",
-      "Tell your supervisor honestly and offer to help fix it",
-      "Fix it quietly without telling anyone"
-    ],
-    correctIdx: 2,
-    explanation: "Honesty and accountability are highly valued soft skills."
-  },
-  {
-    skillName: "Customer Service",
-    type: "SJT",
-    question: "A customer is angry about a delay that wasn't your fault. What do you do?",
-    options: [
-      "Argue back that it isn't your fault",
-      "Stay calm, apologise for the inconvenience, and explain what you're doing about it",
-      "Say nothing and let them keep complaining",
-      "Blame the supplier openly in front of them"
-    ],
-    correctIdx: 1,
-    explanation: "De-escalation and proactive problem solving."
-  }
-];
-
-// ─── STAGE 5: DOMAIN-SPECIFIC SKILL BANK ───
-export const domainSkillQuestions = [
-  {
-    skillName: "Embroidery Work",
-    type: "Skill",
-    question: "Which embroidery style, originating from Punjab, is characterised by geometric patterns stitched on the wrong side of the fabric creating a mirror effect on the front?",
-    options: ["Chikankari", "Phulkari", "Kantha", "Aari"],
-    correctIdx: 1,
-    explanation: "Phulkari is done from the wrong side."
-  },
-  {
-    skillName: "Fabric Dyeing & Printing",
-    type: "Skill",
-    question: "Which traditional Indian block printing technique from Rajasthan uses mud/clay resist paste before immersing the fabric in indigo vats?",
-    options: ["Dabu Printing", "Ajrakh Printing", "Bagh Printing", "Kalamkari Printing"],
-    correctIdx: 0,
-    explanation: "Dabu printing uses a mud-resist paste."
-  },
-  {
-    skillName: "Tailoring & Dressmaking",
-    type: "Skill",
-    question: "Which type of seam is most suitable for sheer, lightweight fabrics to enclose raw edges completely and prevent fraying?",
-    options: ["Plain Seam", "French Seam", "Flat-Felled Seam", "Overlocked Seam"],
-    correctIdx: 1,
-    explanation: "A French seam encloses raw edges inside a second seam."
-  }
+  { skillName: "Work Readiness", type: "Situational Judgement", question: "Your trainer shows the class a new technique. You don't understand it, but everyone else seems to. What do you do?", options: ["Stay quiet and hope to figure it out later", "Ask the trainer to explain again, even if others might already know it", "Copy a classmate's work without understanding it", "Give up on that part of the training"], correctIdx: 1 },
+  { skillName: "Work Readiness", type: "Situational Judgement", question: "You made a mistake while helping a customer and it will cost you money to fix. What do you do?", options: ["Hide the mistake and hope no one notices", "Blame a co-worker", "Tell your supervisor honestly and offer to help fix it", "Fix it quietly without telling anyone"], correctIdx: 2 },
+  { skillName: "Work Readiness", type: "Situational Judgement", question: "Your family wants you to take up farming like your father, but you are more interested in electronics repair. What is the most balanced first step?", options: ["Refuse farming completely and leave home", "Give up electronics to avoid conflict", "Talk to your family about trying a short electronics course while still helping with farm work", "Do nothing and let others decide for you"], correctIdx: 2 },
+  { skillName: "Work Readiness", type: "Situational Judgement", question: "A teammate is not doing their share of the work on a group task, and the deadline is close. What do you do?", options: ["Do all the work yourself silently", "Complain about them to others but say nothing to them directly", "Talk to them directly and ask if they need help or are stuck", "Report them immediately without talking first"], correctIdx: 2 },
+  { skillName: "Work Readiness", type: "Situational Judgement", question: "You are asked to do a job you've never done before, with no one available to ask. What do you do?", options: ["Refuse the task", "Guess randomly and hope it works", "Look for instructions, past examples, or logical steps, and proceed carefully", "Wait indefinitely until someone becomes available"], correctIdx: 2 },
+  { skillName: "Work Readiness", type: "Situational Judgement", question: "A client wants a task finished faster than usual, which would mean skipping a quality-check step. What do you do?", options: ["Skip the step to please the client", "Refuse the job entirely", "Explain the risk honestly and suggest a faster option that still keeps quality", "Do it their way without saying anything"], correctIdx: 2 },
+  { skillName: "Work Readiness", type: "Situational Judgement", question: "You realise a tool or machine you are about to use looks damaged. What do you do?", options: ["Use it carefully anyway to save time", "Report it and use a different tool, or wait for it to be fixed", "Ignore it, it's probably fine", "Try to fix it yourself even without training"], correctIdx: 1 },
+  { skillName: "Work Readiness", type: "Situational Judgement", question: "You have been offered work in a nearby town that pays better than local work, but it means travelling daily. What matters most before deciding?", options: ["Only the pay", "Only what your friends think", "Pay, travel time/cost, safety, and whether it fits your other responsibilities", "Whichever option requires the least effort"], correctIdx: 2 },
+  { skillName: "Work Readiness", type: "Situational Judgement", question: "A customer is angry about a delay that wasn't your fault. What do you do?", options: ["Argue back that it isn't your fault", "Stay calm, apologise for the inconvenience, and explain what you're doing about it", "Say nothing and let them keep complaining", "Blame the supplier openly in front of them"], correctIdx: 1 },
+  { skillName: "Work Readiness", type: "Situational Judgement", question: "You finish your assigned tasks early with time left in the day. What do you do?", options: ["Sit idle until the day ends", "Ask if you can help with something else or start preparing for tomorrow", "Leave early without telling anyone", "Slow down on purpose so it looks like you're still busy"], correctIdx: 1 },
+  { skillName: "Work Readiness", type: "Situational Judgement", question: "You're learning a new digital tool (like a mobile app for your trade) and keep making errors. What's the most useful approach?", options: ["Give up and stick to the old paper-based method", "Keep trying the same way expecting a different result", "Note down where you go wrong, watch a tutorial or ask someone, then retry", "Ask someone else to do it for you every time"], correctIdx: 2 },
+  { skillName: "Work Readiness", type: "Situational Judgement", question: "Two customers disagree over whose turn it is to be served. What do you do?", options: ["Ignore both and serve whoever you prefer", "Let them argue it out", "Calmly check who arrived first and explain the order fairly", "Serve neither until they stop arguing"], correctIdx: 2 },
+  { skillName: "Work Readiness", type: "Situational Judgement", question: "You are asked to handle money/cash as part of a job for the first time. What matters most to you?", options: ["How quickly you can finish counting", "Keeping an honest and accurate record, even if it takes longer", "Avoiding the task if possible", "Trusting your memory instead of writing anything down"], correctIdx: 1 },
+  { skillName: "Work Readiness", type: "Situational Judgement", question: "You notice a safer but slightly slower way to do a task than the way you were taught. What do you do?", options: ["Keep doing it the old way since that's what you were told", "Switch immediately without telling anyone", "Mention the safer way to your supervisor/trainer and see if it can be adopted", "Do the risky way when supervised, the safe way when alone"], correctIdx: 2 },
+  { skillName: "Work Readiness", type: "Situational Judgement", question: "You're offered a chance to specialise deeply in one narrow skill (e.g., only fibre cable splicing) versus a broader but less specialised role (e.g., general electrician). What should guide the choice?", options: ["Whichever sounds more prestigious", "Local demand, your own interest level, and long-term growth in each path", "Whatever your friends are choosing", "The one with the shorter training time regardless of anything else"], correctIdx: 1 }
 ];

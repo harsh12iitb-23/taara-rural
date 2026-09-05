@@ -15,7 +15,7 @@
   --sunlit-clay: #E39B2D; 
   
   /* Secondary Active: Faded Teal / Peacock Blue (Calm secondary accents) */
-  --olive-leaf: #3A6266; 
+  --olive-leaf: #173f0b; 
   
   --sidebar-w: 250px;
 }
@@ -1087,9 +1087,11 @@
   height: 8px;
 }
 
+/* Fix: Pixel-perfect alignment to match slider thumb stops */
 .likert-scale-labels {
-  display: flex;
-  justify-content: space-between;
+  position: relative;
+  display: block;
+  height: 24px; /* Gives the text room to breathe */
   margin-top: 10px;
   font-size: 12px;
   font-weight: 600;
@@ -1097,12 +1099,103 @@
   font-family: 'Nunito', sans-serif;
 }
 
-.likert-badge-selected {
-  margin-top: 12px;
-  text-align: right;
-  font-size: 13.5px;
-  font-weight: 700;
-  color: var(--copperwood);
-  font-family: 'Baloo 2', sans-serif;
+/* Base style for all labels: centered on their specific percentage */
+.likert-scale-labels span {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  white-space: nowrap; /* Prevents text from wrapping awkwardly */
 }
 
+/* 0% Stop - Anchor to the far left edge */
+.likert-scale-labels span:nth-child(1) {
+  left: 0%;
+  transform: translateX(0); 
+}
+
+/* 25% Stop */
+.likert-scale-labels span:nth-child(2) {
+  left: 25%;
+}
+
+/* 50% Stop */
+.likert-scale-labels span:nth-child(3) {
+  left: 50%;
+}
+
+/* 75% Stop */
+.likert-scale-labels span:nth-child(4) {
+  left: 75%;
+}
+
+/* 100% Stop - Anchor to the far right edge */
+.likert-scale-labels span:nth-child(5) {
+  left: 100%;
+  transform: translateX(-100%); 
+}
+
+/* ─── STAGE 4: TRUE SIDEBAR PORTAL OVERLAY ─── */
+.quiz-sidebar-portal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-w, 250px);
+  height: 100vh;
+  background: var(--black-forest, #223240);
+  z-index: 999999; /* Guarantees it covers the original menu */
+  padding: 24px 16px;
+  overflow-y: auto;
+  box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+}
+
+.quiz-sidebar-portal h3 {
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  font-size: 15px;
+  font-family: 'Baloo 2', sans-serif;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 16px;
+}
+
+.quiz-sidebar-portal .timer-box {
+  background: rgba(255,255,255,0.1);
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 24px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.quiz-sidebar-portal p {
+  font-size: 13px;
+  color: #aeb9c4;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.quiz-nav-grid-portal {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding-bottom: 40px;
+}
+
+.quiz-nav-btn-portal {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quiz-nav-btn-portal:hover { background: rgba(255,255,255,0.2); }
+.quiz-nav-btn-portal.answered { background: var(--olive-leaf, #3A6266); border-color: var(--olive-leaf, #3A6266); }
+.quiz-nav-btn-portal.active { background: var(--copperwood, #D4503C); border-color: var(--copperwood, #D4503C); box-shadow: 0 0 0 3px rgba(212,80,60,0.4); }
