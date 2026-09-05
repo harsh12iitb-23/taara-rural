@@ -68,10 +68,14 @@ export default function Report({ navigateTo }: ReportProps) {
       <div className="assessment-card" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', padding: '48px 24px' }}>
         
         <div style={{ fontSize: '56px', marginBottom: '16px' }}>📊</div>
+<<<<<<< HEAD
         <h2 className="section-heading" style={{ fontSize: '32px', marginBottom: '8px' }}>
           Assessment Analysis
         </h2>
 
+=======
+        <h2 className="section-heading" style={{ fontSize: '32px', marginBottom: '8px' }}>Assessment Analysis</h2>
+>>>>>>> 435434d71ffabd3a5b5f327392832f0feb2f0c6a
         <p style={{ fontSize: '15px', color: '#666', marginBottom: '40px' }}>
           Here is the breakdown of your performance across all valid questions.
         </p>
@@ -83,11 +87,17 @@ export default function Report({ navigateTo }: ReportProps) {
             <h3 style={{ fontFamily: "'Baloo 2', sans-serif", fontSize: '16px', color: '#666', textTransform: 'uppercase', margin: '0 0 12px 0', letterSpacing: '0.5px' }}>
               Questions Attempted
             </h3>
+<<<<<<< HEAD
 
             <div style={{ fontSize: '54px', fontWeight: 'bold', color: 'var(--copperwood)', lineHeight: '1' }}>
               {stats.attemptRate}%
             </div>
 
+=======
+            <div style={{ fontSize: '54px', fontWeight: 'bold', color: 'var(--copperwood)', lineHeight: '1' }}>
+              {stats.attemptRate}%
+            </div>
+>>>>>>> 435434d71ffabd3a5b5f327392832f0feb2f0c6a
             <p style={{ margin: '16px 0 0 0', fontSize: '15px', color: '#777', fontWeight: 'bold' }}>
               You answered {stats.attempted} out of {stats.totalValid} questions.
             </p>
@@ -98,11 +108,17 @@ export default function Report({ navigateTo }: ReportProps) {
             <h3 style={{ fontFamily: "'Baloo 2', sans-serif", fontSize: '16px', color: '#666', textTransform: 'uppercase', margin: '0 0 12px 0', letterSpacing: '0.5px' }}>
               Questions Correct
             </h3>
+<<<<<<< HEAD
 
             <div style={{ fontSize: '54px', fontWeight: 'bold', color: 'var(--olive-leaf)', lineHeight: '1' }}>
               {stats.scoreRate}%
             </div>
 
+=======
+            <div style={{ fontSize: '54px', fontWeight: 'bold', color: 'var(--olive-leaf)', lineHeight: '1' }}>
+              {stats.scoreRate}%
+            </div>
+>>>>>>> 435434d71ffabd3a5b5f327392832f0feb2f0c6a
             <p style={{ margin: '16px 0 0 0', fontSize: '15px', color: '#777', fontWeight: 'bold' }}>
               You got {stats.correct} out of {stats.totalValid} correct.
             </p>
@@ -111,6 +127,7 @@ export default function Report({ navigateTo }: ReportProps) {
         </div>
 
         <div style={{ borderTop: '1.5px solid rgba(188,108,37,0.1)', paddingTop: '40px' }}>
+<<<<<<< HEAD
 
           {/* NEW DOWNLOAD ANALYSIS BUTTON */}
           <a
@@ -131,6 +148,8 @@ export default function Report({ navigateTo }: ReportProps) {
           </a>
 
           {/* EXISTING RETURN BUTTON */}
+=======
+>>>>>>> 435434d71ffabd3a5b5f327392832f0feb2f0c6a
           <button 
             className="btn-primary" 
             onClick={() => {
@@ -138,11 +157,18 @@ export default function Report({ navigateTo }: ReportProps) {
               localStorage.removeItem('taara_test_answers'); 
               navigateTo('home');
             }}
+<<<<<<< HEAD
             style={{ padding: '16px 36px', fontSize: '15px' }}
           >
             Return to Home Dashboard
           </button>
 
+=======
+            style={{ padding: '16px 48px', fontSize: '15px' }}
+          >
+            Return to Home Dashboard
+          </button>
+>>>>>>> 435434d71ffabd3a5b5f327392832f0feb2f0c6a
         </div>
 
       </div>
