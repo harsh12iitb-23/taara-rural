@@ -15,30 +15,33 @@ export default function Report({ navigateTo }: ReportProps) {
   });
 
   useEffect(() => {
-    // 1. Retrieve the saved answers from the Assessment page
+    // Retrieve the saved answers from the Assessment page
     const savedData = localStorage.getItem('taara_test_answers');
-    if (!savedData) return; // Failsafe if no test was taken
-    
+
+    if (!savedData) return;
+
     const userAnswers = JSON.parse(savedData);
-    
+
     let totalValid = 0;
     let attempted = 0;
     let correct = 0;
 
-    // 2. Core Grading Logic Engine
-    const processQuestions = (questions: any[], sectionKey: 'aptitude' | 'situational') => {
+    // Core Grading Logic Engine
+    const processQuestions = (
+      questions: any[],
+      sectionKey: 'aptitude' | 'situational'
+    ) => {
       questions.forEach((q, idx) => {
-        
         // Exclude questions that do not have a defined correct answer
         if (q.correctIdx !== undefined && q.correctIdx !== null) {
           totalValid++;
-          
+
           const userAnswer = userAnswers[sectionKey]?.[idx];
-          
+
           // Check if the user attempted it
           if (userAnswer !== undefined) {
             attempted++;
-            
+
             // Give 1 mark for a correct attempt
             if (userAnswer === q.correctIdx) {
               correct++;
@@ -52,84 +55,160 @@ export default function Report({ navigateTo }: ReportProps) {
     processQuestions(aptitudeQuestions, 'aptitude');
     processQuestions(situationalQuestions, 'situational');
 
-    // 3. Calculate exact percentages
+    // Calculate exact percentages
     setStats({
       totalValid,
       attempted,
       correct,
-      attemptRate: totalValid > 0 ? Math.round((attempted / totalValid) * 100) : 0,
-      scoreRate: totalValid > 0 ? Math.round((correct / totalValid) * 100) : 0
+      attemptRate:
+        totalValid > 0
+          ? Math.round((attempted / totalValid) * 100)
+          : 0,
+      scoreRate:
+        totalValid > 0
+          ? Math.round((correct / totalValid) * 100)
+          : 0
     });
-    
   }, []);
 
   return (
     <section className="assessment-section animate-in visible">
-      <div className="assessment-card" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', padding: '48px 24px' }}>
-        
-        <div style={{ fontSize: '56px', marginBottom: '16px' }}>📊</div>
-<<<<<<< HEAD
-        <h2 className="section-heading" style={{ fontSize: '32px', marginBottom: '8px' }}>
+      <div
+        className="assessment-card"
+        style={{
+          maxWidth: '800px',
+          margin: '0 auto',
+          textAlign: 'center',
+          padding: '48px 24px'
+        }}
+      >
+        <div style={{ fontSize: '56px', marginBottom: '16px' }}>
+          📊
+        </div>
+
+        <h2
+          className="section-heading"
+          style={{ fontSize: '32px', marginBottom: '8px' }}
+        >
           Assessment Analysis
         </h2>
 
-=======
-        <h2 className="section-heading" style={{ fontSize: '32px', marginBottom: '8px' }}>Assessment Analysis</h2>
->>>>>>> 435434d71ffabd3a5b5f327392832f0feb2f0c6a
-        <p style={{ fontSize: '15px', color: '#666', marginBottom: '40px' }}>
+        <p
+          style={{
+            fontSize: '15px',
+            color: '#666',
+            marginBottom: '40px'
+          }}
+        >
           Here is the breakdown of your performance across all valid questions.
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', marginBottom: '48px' }}>
-          
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '24px',
+            marginBottom: '48px'
+          }}
+        >
           {/* Card 1: Percentage Attempted */}
-          <div style={{ background: '#FFFDF0', border: '1.5px solid #ede8d5', borderRadius: '16px', padding: '32px' }}>
-            <h3 style={{ fontFamily: "'Baloo 2', sans-serif", fontSize: '16px', color: '#666', textTransform: 'uppercase', margin: '0 0 12px 0', letterSpacing: '0.5px' }}>
+          <div
+            style={{
+              background: '#FFFDF0',
+              border: '1.5px solid #ede8d5',
+              borderRadius: '16px',
+              padding: '32px'
+            }}
+          >
+            <h3
+              style={{
+                fontFamily: "'Baloo 2', sans-serif",
+                fontSize: '16px',
+                color: '#666',
+                textTransform: 'uppercase',
+                margin: '0 0 12px 0',
+                letterSpacing: '0.5px'
+              }}
+            >
               Questions Attempted
             </h3>
-<<<<<<< HEAD
 
-            <div style={{ fontSize: '54px', fontWeight: 'bold', color: 'var(--copperwood)', lineHeight: '1' }}>
+            <div
+              style={{
+                fontSize: '54px',
+                fontWeight: 'bold',
+                color: 'var(--copperwood)',
+                lineHeight: '1'
+              }}
+            >
               {stats.attemptRate}%
             </div>
 
-=======
-            <div style={{ fontSize: '54px', fontWeight: 'bold', color: 'var(--copperwood)', lineHeight: '1' }}>
-              {stats.attemptRate}%
-            </div>
->>>>>>> 435434d71ffabd3a5b5f327392832f0feb2f0c6a
-            <p style={{ margin: '16px 0 0 0', fontSize: '15px', color: '#777', fontWeight: 'bold' }}>
+            <p
+              style={{
+                margin: '16px 0 0 0',
+                fontSize: '15px',
+                color: '#777',
+                fontWeight: 'bold'
+              }}
+            >
               You answered {stats.attempted} out of {stats.totalValid} questions.
             </p>
           </div>
 
           {/* Card 2: Percentage Correct */}
-          <div style={{ background: '#FFFDF0', border: '1.5px solid #ede8d5', borderRadius: '16px', padding: '32px' }}>
-            <h3 style={{ fontFamily: "'Baloo 2', sans-serif", fontSize: '16px', color: '#666', textTransform: 'uppercase', margin: '0 0 12px 0', letterSpacing: '0.5px' }}>
+          <div
+            style={{
+              background: '#FFFDF0',
+              border: '1.5px solid #ede8d5',
+              borderRadius: '16px',
+              padding: '32px'
+            }}
+          >
+            <h3
+              style={{
+                fontFamily: "'Baloo 2', sans-serif",
+                fontSize: '16px',
+                color: '#666',
+                textTransform: 'uppercase',
+                margin: '0 0 12px 0',
+                letterSpacing: '0.5px'
+              }}
+            >
               Questions Correct
             </h3>
-<<<<<<< HEAD
 
-            <div style={{ fontSize: '54px', fontWeight: 'bold', color: 'var(--olive-leaf)', lineHeight: '1' }}>
+            <div
+              style={{
+                fontSize: '54px',
+                fontWeight: 'bold',
+                color: 'var(--olive-leaf)',
+                lineHeight: '1'
+              }}
+            >
               {stats.scoreRate}%
             </div>
 
-=======
-            <div style={{ fontSize: '54px', fontWeight: 'bold', color: 'var(--olive-leaf)', lineHeight: '1' }}>
-              {stats.scoreRate}%
-            </div>
->>>>>>> 435434d71ffabd3a5b5f327392832f0feb2f0c6a
-            <p style={{ margin: '16px 0 0 0', fontSize: '15px', color: '#777', fontWeight: 'bold' }}>
+            <p
+              style={{
+                margin: '16px 0 0 0',
+                fontSize: '15px',
+                color: '#777',
+                fontWeight: 'bold'
+              }}
+            >
               You got {stats.correct} out of {stats.totalValid} correct.
             </p>
           </div>
-
         </div>
 
-        <div style={{ borderTop: '1.5px solid rgba(188,108,37,0.1)', paddingTop: '40px' }}>
-<<<<<<< HEAD
-
-          {/* NEW DOWNLOAD ANALYSIS BUTTON */}
+        <div
+          style={{
+            borderTop: '1.5px solid rgba(188,108,37,0.1)',
+            paddingTop: '40px'
+          }}
+        >
+          {/* Download Analysis Button */}
           <a
             href="/analysis-report.pdf"
             download="TAARA-Career-Analysis.pdf"
@@ -141,36 +220,30 @@ export default function Report({ navigateTo }: ReportProps) {
           >
             <button
               className="btn-primary"
-              style={{ padding: '16px 36px', fontSize: '15px' }}
+              style={{
+                padding: '16px 36px',
+                fontSize: '15px'
+              }}
             >
               📄 Download Analysis
             </button>
           </a>
 
-          {/* EXISTING RETURN BUTTON */}
-=======
->>>>>>> 435434d71ffabd3a5b5f327392832f0feb2f0c6a
-          <button 
-            className="btn-primary" 
+          {/* Return to Home Button */}
+          <button
+            className="btn-primary"
             onClick={() => {
-              // Clear the answers from memory when leaving
-              localStorage.removeItem('taara_test_answers'); 
+              localStorage.removeItem('taara_test_answers');
               navigateTo('home');
             }}
-<<<<<<< HEAD
-            style={{ padding: '16px 36px', fontSize: '15px' }}
+            style={{
+              padding: '16px 36px',
+              fontSize: '15px'
+            }}
           >
             Return to Home Dashboard
           </button>
-
-=======
-            style={{ padding: '16px 48px', fontSize: '15px' }}
-          >
-            Return to Home Dashboard
-          </button>
->>>>>>> 435434d71ffabd3a5b5f327392832f0feb2f0c6a
         </div>
-
       </div>
     </section>
   );
